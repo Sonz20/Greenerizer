@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Greenerizer</string>
+    <string name="title_home">Home</string>
+    <string name="title_maps">Maps</string>
+    <string name="title_articles">Articles</string>
+    <string name="title_account">Account</string>
+</resources>
