@@ -17,7 +17,7 @@
         android:title="@string/title_articles" />
 
     <item
-        android:id="@+id/navigtion_account"
+        android:id="@+id/navigation_account"
         android:icon="@drawable/ic_account"
         android:title="@string/title_account" />
 </menu>

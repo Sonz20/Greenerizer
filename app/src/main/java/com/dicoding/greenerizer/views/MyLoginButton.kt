@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.dicoding.greenerizer.R
 
-class MyButton : AppCompatButton {
+class MyLoginButton: AppCompatButton {
     private lateinit var enabledBackground: Drawable
     private lateinit var disabledBackground: Drawable
     private var txtColor: Int = 0
@@ -31,7 +31,7 @@ class MyButton : AppCompatButton {
         setTextColor(txtColor)
         textSize = 15f
         gravity = Gravity.CENTER
-        text = if(isEnabled) resources.getString(R.string.sign_up) else resources.getString(R.string.fill_form)
+        text = if(isEnabled) resources.getString(R.string.sign_in) else resources.getString(R.string.fill_form)
     }
 
     private fun init() {

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "262598596313",
+    "project_id": "greenerizer-682ea",
+    "storage_bucket": "greenerizer-682ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262598596313:android:7652e3b2be995a769ed0c8",
+        "android_client_info": {
+          "package_name": "com.dicoding.greenerizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "262598596313-j0p0rcof5l5h6vgdjjs9diuv715833oo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.greenerizer",
+            "certificate_hash": "9f3cbfad163da2b8182a47ca7e6c01bb8c3ec1d1"
+          }
+        },
+        {
+          "client_id": "262598596313-n5qmcbjsh1efknj83dqq43kdl0dg341a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQnjsHyMy0Ns9re2ynf3J9xF8eI3_25fQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "262598596313-euima7b2dr5og3h3qga13uj54fiqnnor.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
