@@ -1,15 +1,20 @@
 package com.dicoding.greenerizer
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.greenerizer.databinding.ActivityMainBinding
 
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "users")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -27,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             when(destination.id) {
                 R.id.SplashScreenFragment -> hideNavbar()
                 R.id.navigation_home -> showNavbar()
+                R.id.navigation_maps -> showNavbar()
             }
         }
         // Passing each menu ID as a set of Ids because each

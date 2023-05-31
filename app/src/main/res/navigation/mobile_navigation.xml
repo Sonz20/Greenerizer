@@ -9,13 +9,14 @@
         android:id="@+id/navigation_home"
         android:name="com.dicoding.greenerizer.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_maps"
-        android:name="com.dicoding.greenerizer.ui.dashboard.DashboardFragment"
-        android:label="@string/title_maps"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_account"
@@ -67,4 +68,8 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.dicoding.greenerizer.ui.maps.MapsFragment"
+        android:label="MapsFragment" />
 </navigation>

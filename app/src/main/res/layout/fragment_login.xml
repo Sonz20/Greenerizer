@@ -15,9 +15,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.224" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -25,9 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/email"
+        android:alpha="0"
         app:helperText="@string/required"
         app:helperTextTextColor="@color/red"
         app:startIconDrawable="@drawable/ic_email"
@@ -52,6 +54,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/password"
+        android:alpha="0"
         app:helperText="@string/required"
         app:helperTextTextColor="@color/red"
         app:startIconDrawable="@drawable/ic_password"
@@ -75,6 +78,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="8dp"
         android:enabled="false"
+        android:alpha="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
@@ -85,6 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/not_have_account"
+        android:textColor="@color/black"
+        android:alpha="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signin_button" />
@@ -100,6 +106,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_login_page"
+        android:alpha="0"
+        app:layout_constraintTop_toBottomOf="@id/question_register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
