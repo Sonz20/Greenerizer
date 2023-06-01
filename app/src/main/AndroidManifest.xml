@@ -13,9 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Greenerizer"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyASga2AfPOB4EXvFcAZ3jv2go4GQALs2vM" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

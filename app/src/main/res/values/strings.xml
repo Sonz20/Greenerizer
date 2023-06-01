@@ -1,23 +1,38 @@
 <resources>
     <string name="app_name">Greenerizer</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Beranda</string>
     <string name="title_maps">Maps</string>
-    <string name="title_articles">Articles</string>
-    <string name="title_account">Account</string>
+    <string name="title_articles">Artikel</string>
+    <string name="title_account">Akun</string>
     <!--    Register and Login-->
-    <string name="name">Name</string>
+    <string name="name">Nama</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="sign_up">SIGN UP</string>
-    <string name="sign_in">SIGN IN</string>
-    <string name="invalid_email">Not a valid email</string>
-    <string name="invalid_password">Password must at least 8 characters</string>
-    <string name="signin_failed">"Sign In failed"</string>
-    <string name="signin_success">"Sign In success"</string>
-    <string name="required">Required*</string>
-    <string name="fill_form">Fill this form</string>
-    <string name="already_have_account">Already have an account? <b><u>Sign In</u></b></string>
-    <string name="not_have_account">Not have an account? <b><u>Sign Up</u></b></string>
-    <string name="success_signup">Sign Up Success</string>
-    <string name="failed_signup">Sign Up Failed</string>
+    <string name="sign_up">DAFTAR</string>
+    <string name="sign_in">MASUK</string>
+    <string name="invalid_email">Bukan email valid</string>
+    <string name="invalid_password">Password setidaknya harus 8 karakter</string>
+    <string name="signin_failed">"Masuk gagal"</string>
+    <string name="signin_success">"Masuk sukses"</string>
+    <string name="required">Wajib*</string>
+    <string name="fill_form">Isi form ini</string>
+    <string name="already_have_account">Sudah memiliki akun? <b><u>Masuk</u></b></string>
+    <string name="not_have_account">Belum punya akun? <b><u>Daftar</u></b></string>
+    <string name="success_signup">Daftar sukses</string>
+    <string name="failed_signup">Daftar gagal</string>
+
+    <!--    HomePage -->
+    <string name="hello">Halo, </string>
+    <string name="extension"> !</string>
+    <string name="my_wallet">Dompet Saya</string>
+    <string name="value_point">2000</string>
+    <string name="point"> Poin</string>
+    <string name="history">Riwayat</string>
+    <string name="exchange_point">Tukar poin</string>
+    <string name="location">Lokasi mu</string>
+    <string name="scan_rubish">Scan sampah</string>
+
+    <!--    Profile -->
+    <string name="title_profile">Akun Saya</string>
+    <string name="log_out">Keluar</string>
 </resources>

@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
+import androidx.core.app.ActivityCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -78,6 +80,10 @@ class RegisterFragment : Fragment() {
 
         binding.questionLogin.setOnClickListener{
             view.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            ActivityCompat.finishAffinity(requireActivity())
         }
     }
 

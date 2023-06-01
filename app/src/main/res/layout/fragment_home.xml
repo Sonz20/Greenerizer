@@ -7,16 +7,205 @@
     tools:context=".ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
+        android:id="@+id/greetings"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/name_greetings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/greetings"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extension"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@id/name_greetings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/location_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_location_on_24"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/greetings"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
         android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@id/location_pin"
+        app:layout_constraintTop_toBottomOf="@id/greetings" />
+
+    <TextView
+        android:id="@+id/box_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="181dp"
+        android:background="@drawable/box"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        app:layout_constraintTop_toBottomOf="@id/location_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/wallet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_wallet"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintTop_toTopOf="@id/box_wallet"
+        app:layout_constraintStart_toStartOf="@id/box_wallet"
+        app:layout_constraintEnd_toEndOf="@id/box_wallet"/>
+
+    <TextView
+        android:id="@+id/point_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value_point"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/wallet_title"
+        app:layout_constraintStart_toStartOf="@id/box_wallet"
+        app:layout_constraintEnd_toEndOf="@id/box_wallet"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/point"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/point_value"
+        app:layout_constraintTop_toBottomOf="@id/wallet_title" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:backgroundTint="@color/white"
+        app:tint="@color/green_500"
+        android:src="@drawable/ic_history"
+        android:contentDescription="@string/history"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintStart_toStartOf="@id/box_wallet"
+        app:layout_constraintTop_toBottomOf="@id/point_value"
+        app:layout_constraintEnd_toEndOf="@id/box_wallet"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/fab"
+        app:layout_constraintStart_toStartOf="@id/fab"
+        app:layout_constraintEnd_toEndOf="@id/fab"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_exchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:backgroundTint="@color/white"
+        app:tint="@color/green_500"
+        android:src="@drawable/ic_exchange"
+        android:contentDescription="@string/history"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="100dp"
+        app:layout_constraintStart_toStartOf="@id/box_wallet"
+        app:layout_constraintTop_toBottomOf="@id/point_value"
+        app:layout_constraintEnd_toEndOf="@id/box_wallet"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exchange_point"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/fab_exchange"
+        app:layout_constraintStart_toStartOf="@id/fab_exchange"
+        app:layout_constraintEnd_toEndOf="@id/fab_exchange"/>
+
+    <TextView
+        android:id="@+id/box_function"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
+        android:background="@drawable/box"
+        android:layout_marginTop="74dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        app:layout_constraintTop_toBottomOf="@id/box_wallet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    
+    <TextView
+        android:id="@+id/title_function"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_rubish"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="@id/box_function"
+        app:layout_constraintStart_toStartOf="@id/box_function"
+        app:layout_constraintEnd_toEndOf="@id/box_function" />
+    
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_scan"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/title_function"
+        app:layout_constraintStart_toStartOf="@id/box_function"
+        app:layout_constraintEnd_toEndOf="@id/box_function"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,13 +16,11 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_account"
+            app:destination="@id/navigation_account" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_account"
-        android:name="com.dicoding.greenerizer.ui.notifications.NotificationsFragment"
-        android:label="@string/title_account"
-        tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/SplashScreenFragment"
         android:name="com.dicoding.greenerizer.ui.splash.SplashScreenFragment"
@@ -72,4 +70,16 @@
         android:id="@+id/navigation_maps"
         android:name="com.dicoding.greenerizer.ui.maps.MapsFragment"
         android:label="MapsFragment" />
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.dicoding.greenerizer.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_SplashScreenFragment"
+            app:destination="@id/SplashScreenFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/SplashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
