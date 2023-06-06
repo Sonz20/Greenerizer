@@ -31,8 +31,32 @@
     <string name="exchange_point">Tukar poin</string>
     <string name="location">Lokasi mu</string>
     <string name="scan_rubish">Scan sampah</string>
+    <string name="use_camera">Kamera</string>
+    <string name="use_gallery">Galeri</string>
+    <string name="choose_picture">Pilih gambar</string>
 
     <!--    Profile -->
     <string name="title_profile">Akun Saya</string>
     <string name="log_out">Keluar</string>
+
+    <!--    Result-->
+    <string name="organic">Organik</string>
+    <string name="anorganic">Anorganik</string>
+    <string name="result_label">Hasil ML</string>
+    <string name="price">Price</string>
+    <string name="unit">Poin/Kg</string>
+    <string name="weight">Berat (Kg)</string>
+    <string name="total_price">Total Harga</string>
+    <string name="enter_deposit">Masukkan setoran</string>
+    <string name="description">Description</string>
+    <string name="initial_number">0</string>
+
+    <!--    Camera-->
+    <string name="success_take_photo">Berhasil mengambil foto</string>
+    <string name="failed_take_photo">Gagal mengambil foto</string>
+    <string name="failed_open_camera">Gagal membuka kamera</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
