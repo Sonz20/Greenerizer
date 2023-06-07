@@ -49,6 +49,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun getUserInfo(userId: String) {
+        binding.progressBar.visibility = View.VISIBLE
         db = FirebaseDatabase.getInstance().getReference(RegisterFragment.USER_CHILD)
         db.child(userId).get().addOnCompleteListener {
             if(it.isSuccessful) {
@@ -57,6 +58,7 @@ class ProfileFragment : Fragment() {
                 val email = dataSnapshot.child("email").value
                 binding.tvName.text = name.toString()
                 binding.tvEmail.text = email.toString()
+                binding.progressBar.visibility = View.GONE
             }
         }
     }

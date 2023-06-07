@@ -109,5 +109,41 @@
             android:name="imageSelected"
             app:argType="android.net.Uri"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_resultFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_articles"
+        android:name="com.dicoding.greenerizer.ui.articles.ArticlesFragment"
+        android:label="fragment_articles"
+        tools:layout="@layout/fragment_articles" >
+        <action
+            android:id="@+id/action_navigation_articles_to_detailArticleFragment"
+            app:destination="@id/detailArticleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailArticleFragment"
+        android:name="com.dicoding.greenerizer.ui.articles.detail.DetailArticleFragment"
+        android:label="fragment_detail_article"
+        tools:layout="@layout/fragment_detail_article" >
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="rubbishType"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="integer" />
+        <argument
+            android:name="tipsHandle"
+            app:argType="string" />
     </fragment>
 </navigation>

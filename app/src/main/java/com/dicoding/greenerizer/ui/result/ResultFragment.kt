@@ -1,13 +1,13 @@
 package com.dicoding.greenerizer.ui.result
 
 import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.addCallback
+import androidx.navigation.findNavController
 import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.databinding.FragmentResultBinding
 import com.dicoding.greenerizer.helper.rotateFile
@@ -35,7 +35,11 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.backButton.setOnClickListener {
-            requireActivity().onBackPressed()
+            it.findNavController().navigate(R.id.action_resultFragment_to_navigation_home)
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            view.findNavController().navigate(R.id.action_resultFragment_to_navigation_home)
         }
 
         getFile = ResultFragmentArgs.fromBundle(arguments as Bundle).picture
@@ -52,9 +56,5 @@ class ResultFragment : Fragment() {
             getFile = galleryResult
             binding.previewImageView.setImageURI(uri)
         }
-    }
-
-    companion object {
-        const val CAMERA_X_RESULT = 200
     }
 }

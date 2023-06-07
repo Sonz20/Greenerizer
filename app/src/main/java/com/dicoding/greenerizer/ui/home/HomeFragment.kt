@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -20,11 +21,14 @@ import androidx.navigation.findNavController
 import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.databinding.FragmentHomeBinding
 import com.dicoding.greenerizer.ui.register.RegisterFragment.Companion.USER_CHILD
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -32,6 +36,8 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private lateinit var db: DatabaseReference
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var geocoder: Geocoder
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -93,6 +99,10 @@ class HomeFragment : Fragment() {
             }
             popupMenu.show()
         }
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        getUserLastLocation()
     }
 
     private fun getUserInfo(userId: String) {
@@ -108,6 +118,56 @@ class HomeFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
             }
         }
+    }
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            when {
+                permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false -> {
+                    // Precise location access granted.
+                    getUserLastLocation()
+                }
+                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> {
+                    // Only approximate location access granted.
+                    getUserLastLocation()
+                }
+                else -> {
+                    // No location access granted.
+                }
+            }
+        }
+    private fun checkPermission(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            requireContext(),
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+    private fun getUserLastLocation() {
+        if     (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
+            checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        ){
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                if (location != null) {
+                    val nameAddress = getAddress(location.latitude, location.longitude)
+                    binding.locationName.text = nameAddress
+                }
+            }
+        } else {
+            requestPermissionLauncher.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+            )
+        }
+    }
+
+    private fun getAddress(lat: Double, lon: Double): String? {
+        geocoder = Geocoder(requireContext(), Locale.getDefault())
+        val address = geocoder.getFromLocation(lat, lon, 1)
+        return address?.get(0)?.getAddressLine(0)
     }
 
     private fun startCamera(view: View) {

@@ -39,6 +39,9 @@
     <string name="title_profile">Akun Saya</string>
     <string name="log_out">Keluar</string>
 
+    <!--    Maps -->
+    <string name="rubbish_bank">Bank Sampah</string>
+
     <!--    Result-->
     <string name="organic">Organik</string>
     <string name="anorganic">Anorganik</string>
@@ -55,8 +58,11 @@
     <string name="success_take_photo">Berhasil mengambil foto</string>
     <string name="failed_take_photo">Gagal mengambil foto</string>
     <string name="failed_open_camera">Gagal membuka kamera</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="clear_background">Pastikan latar belakang tidak ada benda lain</string>
+    <string name="warning_message">Pastikan barang dalam kondisi tidak pecah</string>
 
-
+    <!--   Articles -->
+    <string name="information_trash">Informasi Sampah</string>
+    <!--   Detail -->
+    <string name="how_to_handle">Cara Pengelolaan Sampah</string>
 </resources>

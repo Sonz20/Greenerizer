@@ -9,26 +9,6 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(private val pref: UserPreferences): ViewModel() {
 
-    fun getName(): LiveData<String> {
-        return pref.getName().asLiveData()
-    }
-
-    fun saveName(name: String) {
-        viewModelScope.launch {
-            pref.saveName(name)
-        }
-    }
-
-    fun getEmail(): LiveData<String> {
-        return pref.getEmail().asLiveData()
-    }
-
-    fun saveEmail(email: String) {
-        viewModelScope.launch {
-            pref.saveEmail(email)
-        }
-    }
-
     fun getUserId(): LiveData<String> {
         return pref.getUserId().asLiveData()
     }
@@ -36,6 +16,12 @@ class UserViewModel(private val pref: UserPreferences): ViewModel() {
     fun saveUserId(userId: String) {
         viewModelScope.launch {
             pref.saveUserId(userId)
+        }
+    }
+
+    fun clearData(){
+        viewModelScope.launch {
+            pref.deleteUserInfo()
         }
     }
 }

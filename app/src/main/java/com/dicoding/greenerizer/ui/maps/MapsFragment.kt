@@ -1,10 +1,16 @@
 package com.dicoding.greenerizer.ui.maps
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
+import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.databinding.FragmentMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,6 +24,7 @@ class MapsFragment : Fragment() {
     private lateinit var mapView: MapView
     private var _binding: FragmentMapsBinding? = null
     private val binding get() = _binding!!
+    private val mapsViewModel by viewModels<MapsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,13 +47,46 @@ class MapsFragment : Fragment() {
             mMap.uiSettings.isMapToolbarEnabled = true
 
             // Configure and display the map
-            // Add a marker in Sydney and move the camera
-            val sydney = LatLng(-34.0, 151.0)
-            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            getMyLocation()
+            getRubbishBankLocation()
         }
 
         return binding.root
+    }
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                getMyLocation()
+            }
+        }
+
+    private fun getMyLocation() {
+        if (ContextCompat.checkSelfPermission(
+                this.requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            mMap.isMyLocationEnabled = true
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+    }
+
+    private fun getRubbishBankLocation() {
+        mapsViewModel.listLocation.observe(viewLifecycleOwner) {
+            it.forEach { data ->
+                val location = LatLng(data.latitude.toDouble(), data.longitude.toDouble())
+                mMap.addMarker(
+                    MarkerOptions()
+                        .position(location)
+                        .title(resources.getString(R.string.rubbish_bank))
+                )
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
+            }
+        }
     }
 
     override fun onResume() {
@@ -68,5 +108,4 @@ class MapsFragment : Fragment() {
         super.onLowMemory()
         mapView.onLowMemory()
     }
-
 }
