@@ -72,19 +72,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
-            )
-        }
-
         auth = Firebase.auth
 
         getUserInfo(auth.currentUser?.uid.toString())
 
         binding.boxFunction.setOnClickListener {
+            if (!allPermissionsGranted()) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    REQUIRED_PERMISSIONS,
+                    REQUEST_CODE_PERMISSIONS
+                )
+            }
             val popupMenu = PopupMenu(requireContext(), binding.boxFunction)
             popupMenu.menuInflater.inflate(R.menu.photo_menu, popupMenu.menu)
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
