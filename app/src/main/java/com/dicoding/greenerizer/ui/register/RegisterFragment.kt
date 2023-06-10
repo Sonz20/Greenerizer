@@ -126,7 +126,7 @@ class RegisterFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity()) {
             if(it.isSuccessful) {
                 val userSignedUp = User(
-                    name, email, password, 0
+                    name, email, 0
                 )
                 Log.d("Daftar", userSignedUp.toString())
                 userRef.child(it.result.user?.uid.toString()).setValue(userSignedUp) { error, _ ->
