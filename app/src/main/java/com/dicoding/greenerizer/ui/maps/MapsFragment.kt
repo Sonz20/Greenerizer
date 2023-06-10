@@ -12,11 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.databinding.FragmentMapsBinding
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import java.security.AccessController.checkPermission
 
 class MapsFragment : Fragment() {
 
@@ -25,6 +28,7 @@ class MapsFragment : Fragment() {
     private var _binding: FragmentMapsBinding? = null
     private val binding get() = _binding!!
     private val mapsViewModel by viewModels<MapsViewModel>()
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +39,8 @@ class MapsFragment : Fragment() {
 
         // Get a reference to the MapView
         mapView = binding.mapView
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
         // Initialize the MapView amd display the map
         mapView.onCreate(savedInstanceState)
@@ -75,16 +81,33 @@ class MapsFragment : Fragment() {
         }
     }
 
+    private fun checkPermission(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            requireContext(),
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
     private fun getRubbishBankLocation() {
         mapsViewModel.listLocation.observe(viewLifecycleOwner) {
             it.forEach { data ->
                 val location = LatLng(data.latitude.toDouble(), data.longitude.toDouble())
+                val nameLocation = data.namabanksampah.ifEmpty {
+                    resources.getString(R.string.rubbish_bank)
+                }
                 mMap.addMarker(
                     MarkerOptions()
                         .position(location)
-                        .title(resources.getString(R.string.rubbish_bank))
+                        .title(nameLocation)
                 )
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
+            }
+        }
+        if     (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
+            checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        ){
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                val latLng = LatLng(location.latitude, location.longitude)
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
             }
         }
     }

@@ -13,6 +13,9 @@ data class LocationResponseItem(
 	@field:SerializedName("latitude")
 	val latitude: String,
 
+	@field:SerializedName("namabanksampah")
+	val namabanksampah: String,
+
 	@field:SerializedName("idlokasi")
 	val idlokasi: Int,
 
