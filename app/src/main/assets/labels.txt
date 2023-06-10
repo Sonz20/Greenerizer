@@ -1,0 +1,6 @@
+organic
+cardboard
+glass
+metal
+paper
+plastic

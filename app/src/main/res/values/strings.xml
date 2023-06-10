@@ -25,12 +25,12 @@
     <string name="hello">Halo, </string>
     <string name="extension"> !</string>
     <string name="my_wallet">Dompet Saya</string>
-    <string name="value_point">2000</string>
+    <string name="default_value">0</string>
     <string name="point"> Poin</string>
     <string name="history">Riwayat</string>
     <string name="exchange_point">Tukar poin</string>
     <string name="location">Lokasi mu</string>
-    <string name="scan_rubish">Scan sampah</string>
+    <string name="scan_rubish">Pindai sampah</string>
     <string name="use_camera">Kamera</string>
     <string name="use_gallery">Galeri</string>
     <string name="choose_picture">Pilih gambar</string>
@@ -50,7 +50,7 @@
     <string name="unit">Poin/Kg</string>
     <string name="weight">Berat (Kg)</string>
     <string name="total_price">Total Harga</string>
-    <string name="enter_deposit">Masukkan setoran</string>
+    <string name="enter_deposit">Setorkan</string>
     <string name="description">Description</string>
     <string name="initial_number">0</string>
 
@@ -65,4 +65,11 @@
     <string name="information_trash">Informasi Sampah</string>
     <!--   Detail -->
     <string name="how_to_handle">Cara Pengelolaan Sampah</string>
+    <!--   Confirmation Transaction-->
+    <string name="thank_you">Terima Kasih!</string>
+    <string name="help_earth_statement">Sudah membantu bumi ini\nmenjadi lebih baik!</string>
+    <string name="processed">Pesananan anda sedang diproses</string>
+    <string name="unit_weight">Kg</string>
+    <string name="confirmation">OK</string>
+    <string name="wait_statement">Harap menunggu untuk pengambilannya\noleh tim kami</string>
 </resources>
