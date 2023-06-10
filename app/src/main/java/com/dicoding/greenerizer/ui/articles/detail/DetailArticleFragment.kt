@@ -1,6 +1,11 @@
 package com.dicoding.greenerizer.ui.articles.detail
 
+import android.graphics.text.LineBreaker
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Layout
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +33,7 @@ class DetailArticleFragment : Fragment() {
 
         val imageUrl = DetailArticleFragmentArgs.fromBundle(arguments as Bundle).image
         val rubbishType = DetailArticleFragmentArgs.fromBundle(arguments as Bundle).rubbishType
-        if (rubbishType == "trash") {
+        if (rubbishType == "Sampah Organik") {
             binding.trashType.let {
                 it.text = resources.getString(R.string.organic)
                 it.setBackgroundResource(R.drawable.bg_organic)
@@ -43,6 +48,11 @@ class DetailArticleFragment : Fragment() {
         binding.backButton.setOnClickListener {
             requireActivity().onBackPressed()
         }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            binding.tvDescription.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+            binding.tvRubbish.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+        }
     }
 
     private fun setDetail(image: String, rubbishType: String, description: String, price: Int, handleRubbish: String) {
@@ -51,8 +61,18 @@ class DetailArticleFragment : Fragment() {
             .into(binding.ivRubbish)
         binding.titleRubbish.text = rubbishType
         binding.priceTrash.text = price.toString()
-        binding.tvDescription.text = description
-        binding.tvRubbish.text = handleRubbish
+        binding.tvDescription.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(description,  Html.FROM_HTML_MODE_COMPACT)
+        } else {
+            Html.fromHtml(description)
+        }
+        val htmlCoded = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            Html.fromHtml(handleRubbish, Html.FROM_HTML_MODE_COMPACT).toString()
+        } else {
+            Html.fromHtml(handleRubbish).toString()
+        }
+        Log.d("Detail",htmlCoded)
+        binding.tvRubbish.text = htmlCoded
     }
 
 }
