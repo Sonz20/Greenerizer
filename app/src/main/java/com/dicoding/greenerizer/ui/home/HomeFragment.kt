@@ -99,6 +99,15 @@ class HomeFragment : Fragment() {
             popupMenu.show()
         }
 
+        binding.fabExchange.setOnClickListener {
+            val toRewardFragment = HomeFragmentDirections.actionNavigationHomeToRewardsFragment(binding.pointValue.text.toString().toInt())
+            view.findNavController().navigate(toRewardFragment)
+        }
+
+        binding.fabHistory.setOnClickListener {
+            Toast.makeText(requireContext(), "Fitur belum bisa digunakan", Toast.LENGTH_SHORT).show()
+        }
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
         getUserLastLocation()

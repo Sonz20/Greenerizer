@@ -72,4 +72,14 @@
     <string name="unit_weight">Kg</string>
     <string name="confirmation">OK</string>
     <string name="wait_statement">Harap menunggu untuk pengambilannya\noleh tim kami</string>
+
+    <!--   Rewards  -->
+    <string name="information_rewards">Benefit</string>
+    <string name="judul">Judul</string>
+    <string name="points">Poin</string>
+    <string name="your_point">Poin Kamu:</string>
+    <!--    Detail  Rewards -->
+    <string name="name_rewards">rewards</string>
+    <string name="descriptions">descriptions</string>
+    <string name="exchange">Tukar</string>
 </resources>

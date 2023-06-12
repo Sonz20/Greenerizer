@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> showNavbar()
                 R.id.navigation_maps -> showNavbar()
                 R.id.cameraFragment -> hideNavbar()
+                R.id.fragment_rewards -> hideNavbar()
             }
         }
         // Passing each menu ID as a set of Ids because each

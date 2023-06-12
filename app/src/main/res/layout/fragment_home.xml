@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@id/wallet_title" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -137,9 +137,9 @@
         android:layout_height="wrap_content"
         android:text="@string/history"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/fab"
-        app:layout_constraintStart_toStartOf="@id/fab"
-        app:layout_constraintEnd_toEndOf="@id/fab"/>
+        app:layout_constraintTop_toBottomOf="@id/fab_history"
+        app:layout_constraintStart_toStartOf="@id/fab_history"
+        app:layout_constraintEnd_toEndOf="@id/fab_history"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_exchange"

@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_navigation_home_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_rewardsFragment"
+            app:destination="@id/fragment_rewards" />
     </fragment>
 
     <fragment
@@ -169,5 +172,36 @@
         <action
             android:id="@+id/action_transactionFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_rewards"
+        android:name="com.dicoding.greenerizer.ui.rewards.RewardsFragment"
+        android:label="fragment_rewards"
+        tools:layout="@layout/fragment_rewards" >
+        <action
+            android:id="@+id/action_fragment_rewards_to_detailRewardsFragment"
+            app:destination="@id/detailRewardsFragment" />
+        <argument
+            android:name="userPoint"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailRewardsFragment"
+        android:name="com.dicoding.greenerizer.ui.rewards.detail.DetailRewardsFragment"
+        android:label="fragment_detail_rewards"
+        tools:layout="@layout/fragment_detail_rewards" >
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="rewards"
+            app:argType="string" />
+        <argument
+            android:name="voucher"
+            app:argType="integer" />
+        <argument
+            android:name="descriptions"
+            app:argType="string" />
+
     </fragment>
 </navigation>
