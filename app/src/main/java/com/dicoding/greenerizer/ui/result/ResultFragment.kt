@@ -5,11 +5,11 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -19,6 +19,7 @@ import com.dicoding.greenerizer.helper.rotateFile
 import com.dicoding.greenerizer.helper.uriToFile
 import com.dicoding.greenerizer.ml.Model
 import com.dicoding.greenerizer.ui.articles.ArticlesViewModel
+import com.google.android.material.snackbar.Snackbar
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
@@ -86,6 +87,7 @@ class ResultFragment : Fragment() {
             )
             view.findNavController().navigate(toTransactionFragment)
         }
+
     }
 
     @Suppress("DEPRECATION")
@@ -159,6 +161,21 @@ class ResultFragment : Fragment() {
             }
         }
 
+        articlesViewModel.snackbarText.observe(viewLifecycleOwner) {
+            val contextView = requireActivity().findViewById<View>(R.id.container)
+            it.getContentIfNotHandled()?.let { text ->
+                Snackbar.make(
+                    contextView,
+                    text,
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        articlesViewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
+
         rubbishModel.close()
     }
 
@@ -169,6 +186,7 @@ class ResultFragment : Fragment() {
             binding.valueTrash.text = unit.toString()
             var total = unit * priceTrash
             binding.totalPrice.text = total.toString()
+            setButtonEnabled()
             if (unit > 0) {
                 binding.minus.isClickable = true
                 binding.minus.setOnClickListener {
@@ -179,10 +197,25 @@ class ResultFragment : Fragment() {
                     binding.valueTrash.text = unit.toString()
                     total = unit * priceTrash
                     binding.totalPrice.text = total.toString()
+                    setButtonEnabled()
                 }
             } else {
                 binding.minus.isClickable = false
             }
         }
+        binding.valueTrash.doOnTextChanged { text, _, _, _ ->
+            if(text.toString().toInt() > 0) {
+                setButtonEnabled()
+            }
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if(isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun setButtonEnabled() {
+        val counter = binding.valueTrash.text.toString().toInt()
+        binding.btnDebit.isEnabled = counter > 0
     }
 }

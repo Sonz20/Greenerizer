@@ -171,7 +171,10 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_transactionFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/transactionFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_rewards"
@@ -202,6 +205,26 @@
         <argument
             android:name="descriptions"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailRewardsFragment_to_redeemFragment"
+            app:destination="@id/redeemFragment" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/redeemFragment"
+        android:name="com.dicoding.greenerizer.ui.rewards.RedeemFragment"
+        android:label="RedeemFragment" >
+        <action
+            android:id="@+id/action_redeemFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/redeemFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="rewardName"
+            app:argType="string" />
+        <argument
+            android:name="rewardPrice"
+            app:argType="integer" />
     </fragment>
 </navigation>

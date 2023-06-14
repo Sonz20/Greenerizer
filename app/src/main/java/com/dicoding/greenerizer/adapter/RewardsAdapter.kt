@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -38,26 +37,21 @@ class RewardsAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val rewardsItem = listRewards[position]
         holder.titleJudul.text = rewardsItem.namareward
-        holder.rewardPoint.text = rewardsItem.idreward.toString()
+        holder.rewardPoint.text = rewardsItem.hargareward.toString()
 
         Glide.with(holder.itemView)
             .load(rewardsItem.urlgambar)
             .into(holder.imageRewards)
 
         holder.itemView.setOnClickListener {
-            if (rewardsItem.urlgambar != null) {
-                val toDetailRewards =
-                    RewardsFragmentDirections.actionFragmentRewardsToDetailRewardsFragment(
-                        rewardsItem.urlgambar,
-                        rewardsItem.namareward,
-                        rewardsItem.idreward,
-                        rewardsItem.deskripsi
-                    )
-                holder.itemView.findNavController().navigate(toDetailRewards)
-            } else {
-                // Handle case when image is null
-                Toast.makeText(holder.itemView.context, "Image not available", Toast.LENGTH_SHORT).show()
-            }
+            val toDetailRewards =
+                RewardsFragmentDirections.actionFragmentRewardsToDetailRewardsFragment(
+                    rewardsItem.urlgambar,
+                    rewardsItem.namareward,
+                    rewardsItem.hargareward,
+                    rewardsItem.deskripsi,
+                )
+            holder.itemView.findNavController().navigate(toDetailRewards)
         }
 
     }

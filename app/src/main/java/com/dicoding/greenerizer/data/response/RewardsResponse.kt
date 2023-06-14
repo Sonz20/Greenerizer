@@ -16,6 +16,9 @@ data class RewardsResponseItem(
 	@field:SerializedName("urlgambar")
 	val urlgambar: String,
 
+	@field:SerializedName("hargareward")
+	val hargareward: Int,
+
 	@field:SerializedName("deskripsi")
 	val deskripsi: String,
 

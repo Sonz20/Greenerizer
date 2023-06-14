@@ -45,7 +45,7 @@
     <!--    Result-->
     <string name="organic">Organik</string>
     <string name="anorganic">Anorganik</string>
-    <string name="result_label">Hasil ML</string>
+    <string name="result_label">Nama Sampah</string>
     <string name="price">Price</string>
     <string name="unit">Poin/Kg</string>
     <string name="weight">Berat (Kg)</string>
@@ -68,7 +68,7 @@
     <!--   Confirmation Transaction-->
     <string name="thank_you">Terima Kasih!</string>
     <string name="help_earth_statement">Sudah membantu bumi ini\nmenjadi lebih baik!</string>
-    <string name="processed">Pesananan anda sedang diproses</string>
+    <string name="processed">Pesananan Anda sedang diproses</string>
     <string name="unit_weight">Kg</string>
     <string name="confirmation">OK</string>
     <string name="wait_statement">Harap menunggu untuk pengambilannya\noleh tim kami</string>
@@ -78,8 +78,15 @@
     <string name="judul">Judul</string>
     <string name="points">Poin</string>
     <string name="your_point">Poin Kamu:</string>
+
     <!--    Detail  Rewards -->
-    <string name="name_rewards">rewards</string>
-    <string name="descriptions">descriptions</string>
+    <string name="name_rewards">Rewards</string>
+    <string name="descriptions">Descriptions</string>
     <string name="exchange">Tukar</string>
+
+    <!-- Redeem Rewards -->
+    <string name="congratulations">Selamat!</string>
+    <string name="congratulations_statement">Anda telah berhasil menukarkan hadiah!</string>
+    <string name="reward_processed">Hadiah Anda sedang diproses</string>
+    <string name="wait">Harap menunggu</string>
 </resources>

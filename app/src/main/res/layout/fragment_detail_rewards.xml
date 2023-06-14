@@ -83,14 +83,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_rewards"/>
 
-    <Button
+    <com.dicoding.greenerizer.views.ExchangeButton
         android:id="@+id/btn_debit"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:background="@drawable/bg_button_20"
-        android:text="@string/exchange"
+        android:enabled="false"
         android:layout_marginTop="92dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_description"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

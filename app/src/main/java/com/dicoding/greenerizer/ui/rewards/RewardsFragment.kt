@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.adapter.RewardsAdapter
 import com.dicoding.greenerizer.data.response.RewardsResponseItem
 import com.dicoding.greenerizer.databinding.FragmentRewardsBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class RewardsFragment : Fragment() {
@@ -43,6 +45,19 @@ class RewardsFragment : Fragment() {
 
         rewardsViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
+        }
+
+        rewardsViewModel.snackbarText.observe(viewLifecycleOwner) {
+            val contextView = requireActivity().findViewById<View>(R.id.container)
+            it.getContentIfNotHandled()?.let { text ->
+                if(text.isNotEmpty()) {
+                    Snackbar.make(
+                        contextView,
+                        text,
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
 
         binding.backButton.setOnClickListener {
