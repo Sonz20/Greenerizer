@@ -4,6 +4,7 @@
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_2.jpeg" width=auto height=300 align="left"/>
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_3.jpeg" width=auto height=300 align="left"/>
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_4.jpeg" width=auto height=300 align="left"/>
+<br/>
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_5.jpeg" width=auto height=300 align="left"/>
 <br clear="left"/>
 
