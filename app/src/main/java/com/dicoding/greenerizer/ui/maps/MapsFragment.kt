@@ -19,7 +19,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import java.security.AccessController.checkPermission
+import com.google.android.material.snackbar.Snackbar
 
 class MapsFragment : Fragment() {
 
@@ -58,6 +58,23 @@ class MapsFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mapsViewModel.snackbarText.observe(viewLifecycleOwner) {
+            val contextView = requireActivity().findViewById<View>(R.id.container)
+            it.getContentIfNotHandled()?.let { text ->
+                if(text.isNotEmpty()) {
+                    Snackbar.make(
+                        contextView,
+                        text,
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
 
     private val requestPermissionLauncher =

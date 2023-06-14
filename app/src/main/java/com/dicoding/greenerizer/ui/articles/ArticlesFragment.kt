@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.adapter.RubbishAdapter
 import com.dicoding.greenerizer.data.response.RubbishResponseItem
 import com.dicoding.greenerizer.databinding.FragmentArticlesBinding
+import com.google.android.material.snackbar.Snackbar
 
 class ArticlesFragment : Fragment() {
 
@@ -34,6 +36,20 @@ class ArticlesFragment : Fragment() {
         articlesViewModel.listArticles.observe(viewLifecycleOwner) {
             setRubbish(it)
         }
+
+        articlesViewModel.snackbarText.observe(viewLifecycleOwner) {
+            val contextView = requireActivity().findViewById<View>(R.id.container)
+            it.getContentIfNotHandled()?.let { text ->
+                if(text.isNotEmpty()) {
+                    Snackbar.make(
+                        contextView,
+                        text,
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+
 
         articlesViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)

@@ -121,7 +121,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_status"/>
 
-    
     <Button
         android:id="@+id/btn_confirm"
         android:layout_width="match_parent"
@@ -134,8 +133,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wait_statement" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -170,13 +170,12 @@
         app:layout_constraintStart_toStartOf="@id/tv_total_price"
         app:layout_constraintTop_toBottomOf="@id/tv_total_price" />
     
-    <Button
+    <com.dicoding.greenerizer.views.DebitButton
         android:id="@+id/btn_debit"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:background="@drawable/bg_button_20"
-        android:text="@string/enter_deposit"
         android:layout_marginTop="40dp"
+        android:enabled="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/counter"/>
