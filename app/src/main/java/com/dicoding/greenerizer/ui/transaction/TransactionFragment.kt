@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.navigation.findNavController
 import com.dicoding.greenerizer.R
 import com.dicoding.greenerizer.databinding.FragmentTransactionBinding
@@ -25,7 +26,7 @@ class TransactionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentTransactionBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,8 +45,13 @@ class TransactionFragment : Fragment() {
         binding.valueWeight.text = totalUnit.toString()
         binding.point.text = totalPoint.toString()
 
+        sendPoint(auth.currentUser?.uid.toString(), totalPoint)
+
         binding.btnConfirm.setOnClickListener {
-            sendPoint(auth.currentUser?.uid.toString(), totalPoint)
+            view.findNavController().navigate(R.id.action_transactionFragment_to_navigation_home)
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
             view.findNavController().navigate(R.id.action_transactionFragment_to_navigation_home)
         }
     }

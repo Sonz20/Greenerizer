@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -23,6 +24,7 @@ import com.dicoding.greenerizer.databinding.FragmentHomeBinding
 import com.dicoding.greenerizer.ui.register.RegisterFragment.Companion.USER_CHILD
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
@@ -39,6 +41,8 @@ class HomeFragment : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var geocoder: Geocoder
 
+    @Deprecated("Deprecated in Java")
+    @Suppress("DEPRECATION")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
@@ -105,12 +109,17 @@ class HomeFragment : Fragment() {
         }
 
         binding.fabHistory.setOnClickListener {
-            Toast.makeText(requireContext(), "Fitur belum bisa digunakan", Toast.LENGTH_SHORT).show()
+            val contextView = requireActivity().findViewById<View>(R.id.container)
+            Snackbar.make(contextView, "Fitur belum bisa digunakan", Snackbar.LENGTH_SHORT).show()
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
         getUserLastLocation()
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            ActivityCompat.finishAffinity(requireActivity())
+        }
     }
 
     private fun getUserInfo(userId: String) {
@@ -172,6 +181,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun getAddress(lat: Double, lon: Double): String? {
         geocoder = Geocoder(requireContext(), Locale.getDefault())
         val address = geocoder.getFromLocation(lat, lon, 1)
