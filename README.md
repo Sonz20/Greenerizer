@@ -19,8 +19,8 @@ This application will help us to determine the type of rubbish. You can identify
 
 # To change the Firebase account
 1. Open your Firebase account
-2. Insert your SHA-1 and project package to the SHA-1 certificate fingerprint (you can check it in your Android studio terminal by running the command 'gradlew signigreport'
+2. Insert your SHA-1 and project package to the SHA-1 certificate fingerprint (you can check it in your Android studio terminal by running the command `gradlew signigreport`
 3. Create the authentication
-4. Download google-service.json in the Firebase account settings
-5. Then replace the existing google-service.json file with your downloaded json file.
+4. Download `google-service.json` in the Firebase account settings
+5. Then replace the existing `google-service.json` file with your downloaded json file.
 
