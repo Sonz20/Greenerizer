@@ -4,11 +4,12 @@
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_2.jpeg" width=auto height=300 align="left"/>
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_3.jpeg" width=auto height=300 align="left"/>
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_4.jpeg" width=auto height=300 align="left"/>
+<br/>
 <img src="https://github.com/Sonz20/Greenerizer/blob/master/readme_assets/asset_5.jpeg" width=auto height=300 align="left"/>
 <br clear="left"/>
 
 # About Our Page
-This application will help us to determine the type of rubbish. You can identify the type of waste by taking a picture of that rubbish. This application also help us to recycle rubbish easier by connecting us with the rubbish bank. From this app, you can help the earth and get the benefit. 
+This application will help us to determine the type of rubbish. You can identify the type of waste by taking a picture of that rubbish. This application also helps us to recycle rubbish easier by connecting us with the rubbish bank. From this app, you can help the earth and get the benefit. 
 
 # Installation
 1. Download this file `Greneerizer.zip.`
